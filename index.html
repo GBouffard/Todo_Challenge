@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TasksManager">
+  <head>
+    <meta charset="utf-8">
+    <title>Guillaume Tasks Manager</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+
+  <body>
+    <div id='toDoLogo_still_to_come'></div><br>
+
+    <br><br>
+    <section id="buttons_container">
+      <button>All</button>
+      <button>Active</button>
+      <button>Complete</button>
+      <button>Clear all</button>
+    </section>
+
+    <br><br>
+    <div>
+      <form id="add_a_task_container">
+        Add a new task to the list:<br>
+        <input type="text" required><br>
+        <input type="submit" value="Add Task">
+      </form>
+    </div>
+
+    <br><br>
+    <div>
+      <ul class="tasks-container">
+        <li class="task-item">
+          Walk The Dog
+        </li>
+        <li class="task-item">
+          Do the To Do Challenge
+        </li>
+        <li class="task-item">
+          Try to take over the world with Pinky and the Brain
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

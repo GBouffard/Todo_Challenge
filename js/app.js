@@ -1,0 +1,1 @@
+var guillaumeTasksManager = angular.module('TasksManager', ['ngResource']);
