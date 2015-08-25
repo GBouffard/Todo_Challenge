@@ -24,8 +24,8 @@ Technologies used
 How to run it
 ----
 ```
-git clone git@github.com:GBouffard/Todo_Challenge.git
-cd Todo_Challenge
+git clone git@github.com:GBouffard/todo_challenge.git
+cd todo_challenge
 npm install
 bower install
 npm start
@@ -35,7 +35,7 @@ By opening your browser on http://localhost:3000/, you can now add new tasks, ti
 How to run tests
 ----
 ```
-cd Todo_Challenge
+cd todo_challenge
 npm test
 protractor test/e2e/conf.js
 ```
