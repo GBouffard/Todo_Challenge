@@ -6,7 +6,8 @@ describe('guillaumeToDo', function() {
     ctrl = $controller('guillaumeToDo');
   }));
 
-  xit('initialises with an empty entry to add new task', function() {
+  it('initialises with an empty entry to add new task', function() {
+    expect(ctrl.newTask).toBeUndefined();
   });
 
   xit('can add tasks to the list', function() {
