@@ -4,7 +4,8 @@
   "description": "Makers Academy Challenge",
   "main": "index.js",
   "scripts": {
-    "test": "karma start test/karma.conf.js"
+    "test": "karma start test/karma.conf.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -30,5 +31,8 @@
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
     "phantomjs": "^1.9.18"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
   }
 }
