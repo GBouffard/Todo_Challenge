@@ -10,7 +10,12 @@ describe('guillaumeToDo', function() {
     expect(ctrl.newTask).toBeUndefined();
   });
 
-  xit('can add tasks to the list', function() {
+  it('can add tasks to the list', function() {
+    ctrl.newTask = 'Adding task number 1'
+    ctrl.addTask();
+    ctrl.newTask = 'Adding task number 2'
+    ctrl.addTask();
+    expect(ctrl.tasklist).toEqual['Adding task number 1', 'Adding task number 2'];
   });
 
   xit('knows the exact full list of tasks to display', function() {
