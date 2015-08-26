@@ -35,18 +35,33 @@ describe('guillaumeToDo', function() {
     });
   });
 
-  xit('knows the exact full list of tasks to display', function() {
-  });
+  describe('with a full list of tasks already entered', function() {
 
-  xit('knows how many tasks there are in the list', function() {
-  });
+    beforeEach(function(){
+  	  ctrl.tasklist = {
+        'task_1': false,
+        'task_2': false,
+        'task_3': true,
+        'task_4': false,
+        'task_5': true,
+        'task_6': false
+  	  };
+    });
 
-  xit('knows how many tasks have been completed', function(){
-  });
+    it('knows the exact full list of tasks to display', function() {
+      expect(Object.keys(ctrl.tasklist)).toContain('task_1', 'task_2', 'task_3', 'task_4', 'task_5', 'task_6');
+    });
 
-  xit('knows how many tasks have yet to be completed', function(){
-  });
+    xit('knows how many tasks there are in the list', function() {
+    });
 
-  xit('can clear and delete tasks from the list', function() {
+    xit('knows how many tasks have been completed', function(){
+    });
+
+    xit('knows how many tasks have yet to be completed', function(){
+    });
+
+    xit('can clear and delete tasks from the list', function() {
+    });
   });
 });
