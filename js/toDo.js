@@ -33,5 +33,16 @@ guillaumeTasksManager.controller('guillaumeToDo', ['$resource', function($resour
 
   self.clearAll = function() {
     self.tasklist = [];
+  };
+
+  self.clearCompleted = function() {
+    // I used delete at first but it leaves 'undefined' instead of a value so Im rewriting
+    // the full tasklist json object instead.
+    tempArray = self.tasklist;
+    self.tasklist = [];
+    for(var i = 0; i < tempArray.length; i++) {
+      if ( tempArray[i]['status'] === false) { self.tasklist.push(tempArray[i]) };
+    };
+
   };  
 }]);

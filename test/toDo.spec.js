@@ -93,9 +93,31 @@ describe('guillaumeToDo', function() {
       expect(ctrl.activeTasks()).toEqual(['task_1', 'task_2', 'task_4', 'task_6']);
     });
 
-    it('can clear and delete tasks from the list', function() {
+    it('can clear and delete all the tasks from the list', function() {
       ctrl.clearAll();
       expect(ctrl.tasklist).toEqual([]);
+    });
+
+    it('can clear completed tasks from the list', function() {
+      ctrl.clearCompleted();
+      expect(ctrl.tasklist).toEqual([
+        {
+          'name': 'task_1',
+          'status': false
+        }, 
+        {
+          'name': 'task_2',
+          'status': false
+        },
+        {
+          'name': 'task_4',
+          'status': false
+        },
+        {
+          'name': 'task_6',
+          'status': false
+        }
+      ]);
     });
   });
 });
