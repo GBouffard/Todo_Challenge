@@ -89,7 +89,8 @@ describe('guillaumeToDo', function() {
       expect(ctrl.completedTasks()).toEqual(['task_3', 'task_5']);
     });
 
-    xit('knows the tasks that have yet to be completed', function(){
+    it('knows the tasks that have yet to be completed', function(){
+      expect(ctrl.activeTasks()).toEqual(['task_1', 'task_2', 'task_4', 'task_6']);
     });
 
     xit('can clear and delete tasks from the list', function() {
