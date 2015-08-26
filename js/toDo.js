@@ -29,5 +29,9 @@ guillaumeTasksManager.controller('guillaumeToDo', ['$resource', function($resour
       if ( self.tasklist[n]['status'] === false) { array.push(self.tasklist[n]['name']) };
     };
     return array;
+  };
+
+  self.clearAll = function() {
+    self.tasklist = [];
   };  
 }]);
