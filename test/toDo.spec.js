@@ -85,7 +85,8 @@ describe('guillaumeToDo', function() {
       expect(ctrl.tasklist.length).toEqual(6);
     });
 
-    xit('knows the tasks that have been completed', function(){
+    it('knows the tasks that have been completed', function(){
+      expect(ctrl.completedTasks()).toEqual(['task_3', 'task_5']);
     });
 
     xit('knows the tasks that have yet to be completed', function(){

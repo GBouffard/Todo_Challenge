@@ -14,4 +14,12 @@ guillaumeTasksManager.controller('guillaumeToDo', ['$resource', function($resour
       if ( self.tasklist[n]['name'] === task) { self.tasklist[n]['status'] = true };
     };
   };
+
+  self.completedTasks = function() {
+    array = [];
+    for(var n = 0; n < self.tasklist.length; n++) {
+      if ( self.tasklist[n]['status'] === true) { array.push(self.tasklist[n]['name']) };
+    };
+    return array;
+  };   
 }]);
