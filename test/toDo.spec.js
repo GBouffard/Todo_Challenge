@@ -15,7 +15,18 @@ describe('guillaumeToDo', function() {
     ctrl.addTask();
     ctrl.newTask = 'Adding task number 2'
     ctrl.addTask();
-    expect(ctrl.tasklist).toEqual['Adding task number 1', 'Adding task number 2'];
+    expect(ctrl.tasklist).toEqual({'Adding task number 1': false, 'Adding task number 2': false});
+  });
+
+  describe('Task status', function() {
+    it('initializes a new added task as not completed yet (false)', function(){
+      ctrl.newTask = 'Adding a task'
+      ctrl.addTask();
+      expect(ctrl.tasklist).toEqual({'Adding a task': false});
+    });
+
+    xit('can switch a task to completed (true)', function(){
+    });
   });
 
   xit('knows the exact full list of tasks to display', function() {
@@ -31,11 +42,5 @@ describe('guillaumeToDo', function() {
   });
 
   xit('can clear and delete tasks from the list', function() {
-  });
-
-  xit('initializes a task as not completed (false)', function(){
-  });
-
-  xit('can switch a task to completed (true)', function(){
   });
 });
