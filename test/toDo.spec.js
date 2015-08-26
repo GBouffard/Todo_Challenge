@@ -19,13 +19,19 @@ describe('guillaumeToDo', function() {
   });
 
   describe('Task status', function() {
-    it('initializes a new added task as not completed yet (false)', function(){
+
+    beforeEach(function() {
       ctrl.newTask = 'Adding a task'
       ctrl.addTask();
+    });
+
+    it('initializes a new added task as not completed yet (false)', function(){
       expect(ctrl.tasklist).toEqual({'Adding a task': false});
     });
 
-    xit('can switch a task to completed (true)', function(){
+    it('can switch a task to completed (true)', function(){
+      ctrl.doTask('Adding a task');
+      expect(ctrl.tasklist).toEqual({'Adding a task': true});    
     });
   });
 
