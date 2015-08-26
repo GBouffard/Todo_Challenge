@@ -15,7 +15,16 @@ describe('guillaumeToDo', function() {
     ctrl.addTask();
     ctrl.newTask = 'Adding task number 2'
     ctrl.addTask();
-    expect(ctrl.tasklist).toEqual({'Adding task number 1': false, 'Adding task number 2': false});
+    expect(ctrl.tasklist).toEqual([
+      {
+        'name': 'Adding task number 1',
+        'status': false
+      }, 
+      {
+        'name': 'Adding task number 2',
+        'status': false
+      }
+    ]);
   });
 
   describe('Task status', function() {
@@ -26,40 +35,60 @@ describe('guillaumeToDo', function() {
     });
 
     it('initializes a new added task as not completed yet (false)', function(){
-      expect(ctrl.tasklist).toEqual({'Adding a task': false});
+      expect(ctrl.tasklist[0]['status']).toEqual(false);
     });
 
     it('can switch a task to completed (true)', function(){
       ctrl.doTask('Adding a task');
-      expect(ctrl.tasklist).toEqual({'Adding a task': true});    
+      expect(ctrl.tasklist[0]['status']).toEqual(true);    
     });
   });
 
   describe('with a full list of tasks already entered', function() {
 
     beforeEach(function(){
-  	  ctrl.tasklist = {
-        'task_1': false,
-        'task_2': false,
-        'task_3': true,
-        'task_4': false,
-        'task_5': true,
-        'task_6': false
-  	  };
+      ctrl.tasklist = [
+        {
+          'name': 'task_1',
+          'status': false
+        }, 
+        {
+          'name': 'task_2',
+          'status': false
+        },
+        {
+          'name': 'task_3',
+          'status': true
+        },
+        {
+          'name': 'task_4',
+          'status': false
+        },
+        {
+          'name': 'task_5',
+          'status': true
+        },
+        {
+          'name': 'task_6',
+          'status': false
+        }
+      ];
     });
 
     it('knows the exact full list of tasks to display', function() {
-      expect(Object.keys(ctrl.tasklist)).toContain('task_1', 'task_2', 'task_3', 'task_4', 'task_5', 'task_6');
+      for (var n = 0; n < ctrl.tasklist.length; n++) {
+        expect(ctrl.tasklist[n]['name']).toContain('task_');
+      };
     });
 
     it('knows how many tasks there are in the list', function() {
-      expect(ctrl.numberOfTasks()).toEqual(6);
+      expect(ctrl.tasklist.length).toEqual(6);
     });
 
-    xit('knows how many tasks have been completed', function(){
+    xit('knows the tasks that have been completed', function(){
     });
 
-    xit('knows how many tasks have yet to be completed', function(){
+    xit('knows the tasks that have yet to be completed', function(){
     });
 
     xit('can clear and delete tasks from the list', function() {

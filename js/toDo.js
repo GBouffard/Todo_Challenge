@@ -1,16 +1,17 @@
 guillaumeTasksManager.controller('guillaumeToDo', ['$resource', function($resource) {
   var self = this;
-  self.tasklist = {};
+  self.tasklist = [];
 
   self.addTask = function() {
-    self.tasklist[self.newTask] = false;
+    newTaskObject = {};
+    newTaskObject['name'] = self.newTask;
+    newTaskObject['status'] = false;
+    self.tasklist.push(newTaskObject);
   };
 
   self.doTask = function(task) {
-    self.tasklist[task] = true;
+    for(var n = 0; n < self.tasklist.length; n++) {
+      if ( self.tasklist[n]['name'] === task) { self.tasklist[n]['status'] = true };
+    };
   };
-
-  self.numberOfTasks = function() {
-    return (Object.keys(self.tasklist).length);
-  };  
 }]);
