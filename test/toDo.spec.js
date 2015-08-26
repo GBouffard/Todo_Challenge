@@ -52,7 +52,8 @@ describe('guillaumeToDo', function() {
       expect(Object.keys(ctrl.tasklist)).toContain('task_1', 'task_2', 'task_3', 'task_4', 'task_5', 'task_6');
     });
 
-    xit('knows how many tasks there are in the list', function() {
+    it('knows how many tasks there are in the list', function() {
+      expect(ctrl.numberOfTasks()).toEqual(6);
     });
 
     xit('knows how many tasks have been completed', function(){

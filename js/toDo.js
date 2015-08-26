@@ -9,4 +9,8 @@ guillaumeTasksManager.controller('guillaumeToDo', ['$resource', function($resour
   self.doTask = function(task) {
     self.tasklist[task] = true;
   };
+
+  self.numberOfTasks = function() {
+    return (Object.keys(self.tasklist).length);
+  };  
 }]);
