@@ -11,7 +11,7 @@
     <script src="js/toDo.js"></script>
   </head>
 
-  <body ng-controller="toDo as tasksCtrl">
+  <body ng-controller="guillaumeToDo as tasksCtrl">
     <div id='toDoLogo_still_to_come'></div><br>
 
     <br><br>
@@ -27,8 +27,8 @@
     <div>
       <form id="add_a_task_container">
         Add a new task to the list:<br>
-        <input type="text" required><br>
-        <input type="submit" value="Add Task">
+        <input type="text" required ng-model="tasksCtrl.newTask"><br>
+        <input type="submit" value="Add Task" ng-click="tasksCtrl.addTask()" class="newTaskButton">
       </form>
     </div>
 
@@ -37,17 +37,12 @@
       Tasks: number 
     </div>
 
-    <br><br>        
+    <br><br>
     <div>
-      <ul class="tasks-container">
+      <ul class="tasks-container" ng-repeat="task in tasksCtrl.tasklist">
         <li class="task-item">
-          <input type="checkbox" name="done_or_not" value="done"> Walk The Dog <br>
-        </li>
-        <li class="task-item">
-          <input type="checkbox" name="done_or_not" value="done"> Do the To Do Challenge <br>
-        </li>
-        <li class="task-item">
-          <input type="checkbox" name="done_or_not" value="done"> Try to take over the world with Pinky and the Brain <br>
+          <input type="checkbox" name="done_or_not" value="done">
+          {{task.name}}
         </li>
       </ul>
     </div>
