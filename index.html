@@ -41,8 +41,10 @@
     <div>
       <ul class="tasks-container" ng-repeat="task in tasksCtrl.tasklist">
         <li class="task-item">
-          <input type="checkbox" name="done_or_not" value="done">
+          <input type="checkbox" class="taskCheckBox" ng-model="task.status">
           {{task.name}}
+<!--           <br>
+          {{task.status}} -->
         </li>
       </ul>
     </div>

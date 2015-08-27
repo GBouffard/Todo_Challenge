@@ -2,22 +2,30 @@ describe('App Page', function() {
 
   var newTaskBox = element(by.model('tasksCtrl.newTask'))
   var newTaskButton = element(by.className('newTaskButton'))
+  var checkBox = element(by.className('taskCheckBox'))
 
   it('has a title', function() {
     browser.get('http://localhost:8080');
     expect(browser.getTitle()).toEqual('Guillaume Tasks Manager');
   });
 
-  it('adds tasks to the list as they are entered', function(){
-    newTaskBox.sendKeys('Test with Protractor');
-    newTaskButton.click();
-    expect(element(by.binding('task.name')).getText()).toEqual('Test with Protractor');
-  });
+  describe('Adding tasks', function() {
+  
+    beforeEach(function(){
+      newTaskBox.sendKeys('Test with Protractor');
+      newTaskButton.click();
+    });
 
-  xit('has a tickbox for each task which is not checked by default', function(){
-  });
+    it('adds tasks to the list as they are entered', function(){
+      expect(element(by.binding('task.name')).getText()).toEqual('Test with Protractor');
+    });
 
-  xit('can check a task tickbox when it\'s been done', function(){
+    it('has a tickbox for each task which is not checked by default', function(){
+      expect(element(by.model('task.status')).isSelected()).toBeFalsy();
+    });
+
+    xit('can check a task tickbox when it\'s been done', function(){
+    });
   });
 
   describe('with a list of tasks already added in the list', function() {
