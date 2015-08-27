@@ -3,10 +3,15 @@ guillaumeTasksManager.controller('guillaumeToDo', ['$resource', function($resour
   self.tasklist = [];
 
   self.addTask = function() {
-    newTaskObject = {};
-    newTaskObject['name'] = self.newTask;
-    newTaskObject['status'] = false;
-    self.tasklist.push(newTaskObject);
+  	if(self.newTask === undefined || self.newTask === '') {
+  	  alert('Please enter a task!');
+  	} else {
+      newTaskObject = {};
+      newTaskObject['name'] = self.newTask;
+      newTaskObject['status'] = false;
+      self.tasklist.push(newTaskObject);
+      self.newTask = '';
+    };
   };
 
   self.doTask = function(task) {
