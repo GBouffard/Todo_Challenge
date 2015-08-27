@@ -24,7 +24,9 @@ describe('App Page', function() {
       expect(element(by.model('task.status')).isSelected()).toBeFalsy();
     });
 
-    xit('can check a task tickbox when it\'s been done', function(){
+    it('each task tickbox can be checked and set the task to done when the task has been done', function(){
+      checkBox.click();
+      expect(element(by.model('task.status')).isSelected()).toBeTruthy();
     });
   });
 

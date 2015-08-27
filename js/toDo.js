@@ -11,7 +11,7 @@ guillaumeTasksManager.controller('guillaumeToDo', ['$resource', function($resour
 
   self.doTask = function(task) {
     for(var n = 0; n < self.tasklist.length; n++) {
-      if ( self.tasklist[n]['name'] === task) { self.tasklist[n]['status'] = true };
+      if ( self.tasklist[n]['name'] === task) { self.tasklist[n]['status'] = !self.tasklist[n]['status'] };
     };
   };
 
