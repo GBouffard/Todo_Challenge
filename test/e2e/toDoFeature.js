@@ -4,6 +4,7 @@ describe('App Page', function() {
   var newTaskButton = element(by.id('newTaskButton'));
   var checkBox = element(by.className('taskCheckBox'));
   var tasks = element.all(by.repeater('task in tasksCtrl.tasklist'));
+  var clearAll = element(by.id('clearAllButton'))
 
   it('has a title', function() {
     browser.get('http://localhost:8080');
@@ -15,6 +16,10 @@ describe('App Page', function() {
     beforeEach(function(){
       newTaskBox.sendKeys('Test with Protractor');
       newTaskButton.click();
+    });
+
+    afterEach(function(){
+      clearAll.click();
     });
 
     it('adds tasks to the list as they are entered', function(){
@@ -40,26 +45,33 @@ describe('App Page', function() {
       };
     });
 
+    afterEach(function(){
+      clearAll.click();
+    });
+
     it('by default, shows the list of tasks in the list', function(){
       for(var n = 1; n < 7; n++) {
-        expect(tasks.get(n+2).getText()).toEqual('Task_'+ n.toString());
+        expect(tasks.get(n-1).getText()).toEqual('Task_'+ n.toString());
       };
     });
 
     it('shows the total number of tasks in the list', function(){
-      expect(element(by.id('tasksCounter')).getText()).toEqual('Tasks: 15');
+      expect(element(by.id('tasksCounter')).getText()).toEqual('Tasks: 6');
+    });
+
+    it('clicking the Clear All button removes all the tasks from the list', function(){
+      clearAll.click();
+      expect(tasks).toEqual([]);
     });
 
     xit('clicking the Active button shows all the active tasks', function(){
+    
     });
 
     xit('clicking the Completed button shows all the completed tasks', function(){
     });
 
     xit('clicking the All button shows all the tasks', function(){
-    });
-
-    xit('clicking the Clear All button removes all the tasks from the list', function(){
     });
 
     xit('clicking the Clear Completed button removes all the completed tasks from the list', function(){
