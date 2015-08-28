@@ -18,7 +18,7 @@
     <section id="buttons_container">
       <button>All</button>
       <button ng-click="tasksCtrl.activeTasks()" class="topButton" id='activeButton'>Active</button>
-      <button>Completed</button>
+      <button ng-click="tasksCtrl.completedTasks()" class="topButton" id='completedButton'>Completed</button>
       <button>Clear Completed</button>
       <button ng-click="tasksCtrl.clearAll()" class="topButton" id='clearAllButton'>Clear All</button>
     </section>
@@ -45,13 +45,24 @@
         </li>
       </ul>
     </div>
+
     <div ng-show="tasksCtrl.showActiveList" id='activeContainer'>
       ACTIVE TASKS:
-      <ul class="tasksContainer" ng-repeat="activeTask in tasksCtrl.array">
+      <ul class="tasksContainer" ng-repeat="eachTask in tasksCtrl.array">
         <li>
-          {{activeTask}}
+          {{eachTask}}
         </li>
       </ul>
     </div>
+
+    <div ng-show="tasksCtrl.showCompletedList" id='completedContainer'>
+      COMPLETED TASKS:
+      <ul class="tasksContainer" ng-repeat="eachTask in tasksCtrl.array">
+        <li>
+          {{eachTask}}
+        </li>
+      </ul>
+    </div>
+
   </body>
 </html>

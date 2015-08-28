@@ -66,7 +66,9 @@ describe('App Page', function() {
       expect(element(by.id('activeContainer')).isDisplayed()).toBeTruthy();
     });
 
-    xit('clicking the Completed button shows all the completed tasks', function(){
+    it('clicking the Completed button shows all the completed tasks', function(){
+      element(by.id('completedButton')).click();
+      expect(element(by.id('completedContainer')).isDisplayed()).toBeTruthy();
     });
 
     xit('clicking the All button shows all the tasks', function(){

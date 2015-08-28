@@ -3,6 +3,7 @@ guillaumeTasksManager.controller('guillaumeToDo', ['$resource', function($resour
   self.tasklist = [];
   self.array = []
   self.showActiveList = false;
+  self.showCompletedList = false;
 
   self.addTask = function() {
     if(self.newTask === undefined || self.newTask === '') {
@@ -27,11 +28,13 @@ guillaumeTasksManager.controller('guillaumeToDo', ['$resource', function($resour
   };
 
   self.completedTasks = function() {
-    array = [];
+    self.array = [];
     for(var n = 0; n < self.tasklist.length; n++) {
-      if ( self.tasklist[n]['status'] === true) { array.push(self.tasklist[n]['name']) };
+      if ( self.tasklist[n]['status'] === true) { self.array.push(self.tasklist[n]['name']) };
     };
-    return array;
+    self.showActiveList = false;
+    self.showCompletedList = true;
+    return self.array;
   };  
 
   self.activeTasks = function() {
@@ -39,7 +42,8 @@ guillaumeTasksManager.controller('guillaumeToDo', ['$resource', function($resour
     for(var n = 0; n < self.tasklist.length; n++) {
       if ( self.tasklist[n]['status'] === false) { self.array.push(self.tasklist[n]['name']) };
     };
-    self.showActiveList = !self.showActiveList;
+    self.showCompletedList = false;
+    self.showActiveList = true;
     return self.array;
   };
 
