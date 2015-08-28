@@ -1,8 +1,9 @@
 describe('App Page', function() {
 
-  var newTaskBox = element(by.model('tasksCtrl.newTask'))
-  var newTaskButton = element(by.className('newTaskButton'))
-  var checkBox = element(by.className('taskCheckBox'))
+  var newTaskBox = element(by.model('tasksCtrl.newTask'));
+  var newTaskButton = element(by.id('newTaskButton'));
+  var checkBox = element(by.className('taskCheckBox'));
+  var tasks = element.all(by.repeater('task in tasksCtrl.tasklist'));
 
   it('has a title', function() {
     browser.get('http://localhost:8080');
@@ -33,10 +34,16 @@ describe('App Page', function() {
   describe('with a list of tasks already added in the list', function() {
 
     beforeEach(function() {
-      add_tasks
+      for(var n = 1; n < 7; n++) {
+        newTaskBox.sendKeys('Task_' + n.toString());
+        newTaskButton.click();
+      };
     });
 
-    xit('by default, shows the list of tasks in the list', function(){
+    it('by default, shows the list of tasks in the list', function(){
+      for(var n = 1; n < 7; n++) {
+        expect(tasks.get(n+2).getText()).toEqual('Task_'+ n.toString());
+      };
     });
 
     xit('shows the total number of tasks in the list', function(){
