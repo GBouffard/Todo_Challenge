@@ -6,6 +6,10 @@ describe('App Page', function() {
   var tasks = element.all(by.repeater('task in tasksCtrl.tasklist'));
   var clearAll = element(by.id('clearAllButton'))
 
+  afterEach(function(){
+    clearAll.click();
+  });
+
   it('has a title', function() {
     browser.get('http://localhost:8080');
     expect(browser.getTitle()).toEqual('Guillaume Tasks Manager');
@@ -18,21 +22,17 @@ describe('App Page', function() {
       newTaskButton.click();
     });
 
-    afterEach(function(){
-      clearAll.click();
-    });
-
     it('adds tasks to the list as they are entered', function(){
       expect(element(by.binding('task.name')).getText()).toEqual('Test with Protractor');
     });
 
     it('has a tickbox for each task which is not checked by default', function(){
-      expect(element(by.model('task.status')).isSelected()).toBeFalsy();
+      expect(element(by.className('taskCheckBox')).isSelected()).toBeFalsy();
     });
 
     it('each task tickbox can be checked and set the task to done when the task has been done', function(){
       checkBox.click();
-      expect(element(by.model('task.status')).isSelected()).toBeTruthy();
+      expect(element(by.className('taskCheckBox')).isSelected()).toBeTruthy();
     });
   });
 
@@ -42,11 +42,8 @@ describe('App Page', function() {
       for(var n = 1; n < 7; n++) {
         newTaskBox.sendKeys('Task_' + n.toString());
         newTaskButton.click();
+        if( n === 3 || n ===5  ) { element(by.id('ID'+(n-1).toString())).click() };
       };
-    });
-
-    afterEach(function(){
-      clearAll.click();
     });
 
     it('by default, shows the list of tasks in the list', function(){
@@ -64,8 +61,9 @@ describe('App Page', function() {
       expect(tasks).toEqual([]);
     });
 
-    xit('clicking the Active button shows all the active tasks', function(){
-    
+    it('clicking the Active button shows all the active tasks', function(){  
+      element(by.id('activeButton')).click();
+      expect(element(by.id('activeContainer')).isDisplayed()).toBeTruthy();
     });
 
     xit('clicking the Completed button shows all the completed tasks', function(){
@@ -75,18 +73,6 @@ describe('App Page', function() {
     });
 
     xit('clicking the Clear Completed button removes all the completed tasks from the list', function(){
-    });
-
-    xit('', function(){
-    });
-
-    xit('', function(){
-    });
-
-    xit('', function(){
-    });
-
-    xit('', function(){
-    });    
+    });   
   });
 });

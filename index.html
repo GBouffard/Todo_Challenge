@@ -17,12 +17,12 @@
     <br><br>
     <section id="buttons_container">
       <button>All</button>
-      <button>Active</button>
+      <button ng-click="tasksCtrl.activeTasks()" class="topButton" id='activeButton'>Active</button>
       <button>Completed</button>
       <button>Clear Completed</button>
       <button ng-click="tasksCtrl.clearAll()" class="topButton" id='clearAllButton'>Clear All</button>
     </section>
-
+    
     <br><br>
     <div>
       <form id="add_a_task_container">
@@ -40,9 +40,16 @@
     <br><br>
     <div>
       <ul class="tasksContainer" ng-repeat="task in tasksCtrl.tasklist">
-        <li class="task-item">
-          <input type="checkbox" class="taskCheckBox" ng-model="task.status">
-          <class="taskName">{{task.name}}</class="taskName">
+        <li>
+          <input type="checkbox" class="taskCheckBox" ng-model="task.status" ng-change="tasksCtrl.doTask()" id={{'ID'+$index}}>{{task.name}}
+        </li>
+      </ul>
+    </div>
+    <div ng-show="tasksCtrl.showActiveList" id='activeContainer'>
+      ACTIVE TASKS:
+      <ul class="tasksContainer" ng-repeat="activeTask in tasksCtrl.array">
+        <li>
+          {{activeTask}}
         </li>
       </ul>
     </div>

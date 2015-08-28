@@ -1,6 +1,8 @@
 guillaumeTasksManager.controller('guillaumeToDo', ['$resource', function($resource) {
   var self = this;
   self.tasklist = [];
+  self.array = []
+  self.showActiveList = false;
 
   self.addTask = function() {
     if(self.newTask === undefined || self.newTask === '') {
@@ -33,11 +35,12 @@ guillaumeTasksManager.controller('guillaumeToDo', ['$resource', function($resour
   };  
 
   self.activeTasks = function() {
-    array = [];
+    self.array = [];
     for(var n = 0; n < self.tasklist.length; n++) {
-      if ( self.tasklist[n]['status'] === false) { array.push(self.tasklist[n]['name']) };
+      if ( self.tasklist[n]['status'] === false) { self.array.push(self.tasklist[n]['name']) };
     };
-    return array;
+    self.showActiveList = !self.showActiveList;
+    return self.array;
   };
 
   self.clearAll = function() {
