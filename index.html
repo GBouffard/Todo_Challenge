@@ -33,13 +33,13 @@
     </div>
 
     <br><br>
-    <div>
-      Tasks: number 
+    <div id="tasksCounter">
+      Tasks: {{tasksCtrl.tasksCount()}}
     </div>
 
     <br><br>
     <div>
-      <ul class="tasks-container" ng-repeat="task in tasksCtrl.tasklist">
+      <ul class="tasksContainer" ng-repeat="task in tasksCtrl.tasklist">
         <li class="task-item">
           <input type="checkbox" class="taskCheckBox" ng-model="task.status">
           <class="taskName">{{task.name}}</class="taskName">

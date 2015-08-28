@@ -46,7 +46,8 @@ describe('App Page', function() {
       };
     });
 
-    xit('shows the total number of tasks in the list', function(){
+    it('shows the total number of tasks in the list', function(){
+      expect(element(by.id('tasksCounter')).getText()).toEqual('Tasks: 15');
     });
 
     xit('clicking the Active button shows all the active tasks', function(){

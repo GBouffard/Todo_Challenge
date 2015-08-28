@@ -3,9 +3,9 @@ guillaumeTasksManager.controller('guillaumeToDo', ['$resource', function($resour
   self.tasklist = [];
 
   self.addTask = function() {
-  	if(self.newTask === undefined || self.newTask === '') {
-  	  alert('Please enter a task!');
-  	} else {
+    if(self.newTask === undefined || self.newTask === '') {
+      alert('Please enter a task!');
+    } else {
       newTaskObject = {};
       newTaskObject['name'] = self.newTask;
       newTaskObject['status'] = false;
@@ -18,6 +18,10 @@ guillaumeTasksManager.controller('guillaumeToDo', ['$resource', function($resour
     for(var n = 0; n < self.tasklist.length; n++) {
       if ( self.tasklist[n]['name'] === task) { self.tasklist[n]['status'] = !self.tasklist[n]['status'] };
     };
+  };
+
+  self.tasksCount = function() {
+    return self.tasklist.length;
   };
 
   self.completedTasks = function() {
