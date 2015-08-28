@@ -56,6 +56,14 @@ guillaumeTasksManager.controller('guillaumeToDo', ['$resource', function($resour
     return self.array;
   };
 
+  self.activeCount = function() {
+    activeCounter = 0;
+    for(var n = 0; n < self.tasklist.length; n++) {
+      if ( self.tasklist[n]['status'] === false) { activeCounter++ };
+    };
+    return activeCounter;
+  };
+
   self.clearAll = function() {
     self.tasklist = [];
     self.allTasks();

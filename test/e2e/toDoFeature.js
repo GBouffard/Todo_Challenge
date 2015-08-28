@@ -81,6 +81,12 @@ describe('App Page', function() {
     it('clicking the Clear Completed button removes all the completed tasks from the list', function(){
       element(by.id('clearCompletedButton')).click();
       expect(element(by.id('tasksCounter')).getText()).toEqual('Tasks: 4');
-    });   
+    });
+
+    it('shows in real time the number of active tasks in the list', function(){
+      expect(element(by.id('activeCounter')).getText()).toEqual('Active Tasks: 4');
+      element(by.id('ID0')).click();
+      expect(element(by.id('activeCounter')).getText()).toEqual('Active Tasks: 3');
+    }); 
   });
 });
