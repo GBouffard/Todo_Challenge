@@ -39,6 +39,7 @@ describe('App Page', function() {
   describe('with a list of tasks already added in the list', function() {
 
     beforeEach(function() {
+      element(by.id('allButton')).click();
       for(var n = 1; n < 7; n++) {
         newTaskBox.sendKeys('Task_' + n.toString());
         newTaskButton.click();
@@ -71,7 +72,10 @@ describe('App Page', function() {
       expect(element(by.id('completedContainer')).isDisplayed()).toBeTruthy();
     });
 
-    xit('clicking the All button shows all the tasks', function(){
+    it('clicking the All button shows all the tasks', function(){
+      element(by.id('completedButton')).click();
+      element(by.id('allButton')).click();
+      expect(element(by.id('allContainer')).isDisplayed()).toBeTruthy();
     });
 
     xit('clicking the Clear Completed button removes all the completed tasks from the list', function(){

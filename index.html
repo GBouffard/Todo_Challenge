@@ -16,7 +16,7 @@
 
     <br><br>
     <section id="buttons_container">
-      <button>All</button>
+      <button ng-click="tasksCtrl.allTasks()" class="topButton" id='allButton'>All</button>
       <button ng-click="tasksCtrl.activeTasks()" class="topButton" id='activeButton'>Active</button>
       <button ng-click="tasksCtrl.completedTasks()" class="topButton" id='completedButton'>Completed</button>
       <button>Clear Completed</button>
@@ -38,7 +38,8 @@
     </div>
 
     <br><br>
-    <div>
+    <div ng-show="tasksCtrl.showAllList" id='allContainer'>
+      ALL TASKS:
       <ul class="tasksContainer" ng-repeat="task in tasksCtrl.tasklist">
         <li>
           <input type="checkbox" class="taskCheckBox" ng-model="task.status" ng-change="tasksCtrl.doTask()" id={{'ID'+$index}}>{{task.name}}
