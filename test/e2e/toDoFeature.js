@@ -78,7 +78,9 @@ describe('App Page', function() {
       expect(element(by.id('allContainer')).isDisplayed()).toBeTruthy();
     });
 
-    xit('clicking the Clear Completed button removes all the completed tasks from the list', function(){
+    it('clicking the Clear Completed button removes all the completed tasks from the list', function(){
+      element(by.id('clearCompletedButton')).click();
+      expect(element(by.id('tasksCounter')).getText()).toEqual('Tasks: 4');
     });   
   });
 });

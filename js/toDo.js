@@ -58,6 +58,7 @@ guillaumeTasksManager.controller('guillaumeToDo', ['$resource', function($resour
 
   self.clearAll = function() {
     self.tasklist = [];
+    self.allTasks();
   };
 
   self.clearCompleted = function() {
@@ -68,6 +69,6 @@ guillaumeTasksManager.controller('guillaumeToDo', ['$resource', function($resour
     for(var i = 0; i < tempArray.length; i++) {
       if ( tempArray[i]['status'] === false) { self.tasklist.push(tempArray[i]) };
     };
-
+    self.allTasks();
   };  
 }]);
