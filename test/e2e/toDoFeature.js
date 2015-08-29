@@ -87,6 +87,12 @@ describe('App Page', function() {
       expect(element(by.id('activeCounter')).getText()).toEqual('Active Tasks: 4');
       element(by.id('ID0')).click();
       expect(element(by.id('activeCounter')).getText()).toEqual('Active Tasks: 3');
+    });
+
+    it('shows in real time the number of completed tasks in the list', function(){
+      expect(element(by.id('completeCounter')).getText()).toEqual('Completed Tasks: 2');
+      element(by.id('ID0')).click();
+      expect(element(by.id('completeCounter')).getText()).toEqual('Completed Tasks: 3');
     }); 
   });
 });

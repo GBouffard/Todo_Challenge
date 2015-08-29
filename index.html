@@ -33,12 +33,19 @@
     </div>
 
     <br><br>
-    <div id="tasksCounter">
-      Tasks: {{tasksCtrl.tasksCount()}}
-    </div>
-    <div id="activeCounter">
-      Active Tasks: {{tasksCtrl.activeCount()}}
-    </div>
+    <table>
+      <tr>
+        <td id="tasksCounter">
+          Tasks: {{tasksCtrl.tasksCount()}}
+        </td>
+        <td id="activeCounter">
+          Active Tasks: {{tasksCtrl.activeCount()}}
+        </td>
+        <td id="completeCounter">
+          Completed Tasks: {{tasksCtrl.completeCount()}}
+        </td>
+      </tr>
+    </table>
 
     <br><br>
     <div ng-show="tasksCtrl.showAllList" id='allContainer'>
