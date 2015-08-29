@@ -17,7 +17,7 @@
     <div id='toDoLogo_still_to_come'></div><br>
 
     <br><br>
-    <section id="buttons_container">
+    <section>
       <button ng-click="tasksCtrl.allTasks()" class="topButton" id='allButton'>All</button>
       <button ng-click="tasksCtrl.activeTasks()" class="topButton" id='activeButton'>Active</button>
       <button ng-click="tasksCtrl.completedTasks()" class="topButton" id='completedButton'>Completed</button>
@@ -25,10 +25,9 @@
       <button ng-click="tasksCtrl.clearAll()" class="topButton" id='clearAllButton'>Clear All</button>
     </section>
     
-    <br><br>
     <div>
-      <form id="add_a_task_container">
-        Add a new task to the list:<br>
+      <form id="newTaskContainer">
+        ADD A NEW TASK TO THE LIST:<br>
         <input type="text" ng-model="tasksCtrl.newTask"><br>
         <input type="submit" value="Add Task" ng-click="tasksCtrl.addTask()" id="newTaskButton">
       </form>
