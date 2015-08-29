@@ -57,3 +57,36 @@ html, body {
   border-radius:10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
+
+#newTaskText {
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px;
+  width: 350px;
+}
+
+#newTaskButton {
+  background: url(images/wood_add_button.jpg);
+  position: relative;
+  width: 100px;
+  color: black;
+  font-weight: bold;
+  border: none;
+  display: inline-block;
+  box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.2),
+              inset 0px -5px 0px 0px rgba(0,0,0,0.3),
+              inset 0px 2px 0px 0px rgba(255,255,255,0.5);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 5px;
+}
+#newTaskButton:active {
+  box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.2),
+              inset 0px -2px 0px 0px rgba(0,0,0,0.3),
+              inset 0px 2px 0px 0px rgba(255,255,255,0.5);
+  top: 3px;
+}
