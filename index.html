@@ -14,9 +14,8 @@
   </head>
 
   <body ng-controller="guillaumeToDo as tasksCtrl">
-    <div id='toDoLogo_still_to_come'></div><br>
+    <div id='toDoLogo_still_to_come'></div>
 
-    <br><br>
     <section>
       <button ng-click="tasksCtrl.allTasks()" class="topButton" id='allButton'>All</button>
       <button ng-click="tasksCtrl.activeTasks()" class="topButton" id='activeButton'>Active</button>
@@ -33,7 +32,6 @@
       </form>
     </div>
 
-    <br><br>
     <table>
       <tr>
         <td id="tasksCounter">
@@ -48,7 +46,6 @@
       </tr>
     </table>
 
-    <br><br>
     <div ng-show="tasksCtrl.showAllList" id='allContainer'>
       ALL TASKS:
       <ul class="tasksContainer" ng-repeat="task in tasksCtrl.tasklist">
