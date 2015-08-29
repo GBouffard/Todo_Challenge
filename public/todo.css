@@ -11,3 +11,31 @@ body {
 html, body {
   height: 100%;
 }
+
+.topButton {
+  background: url(images/wood_button_background.png);
+  position: relative;
+  border: none;
+  display: inline-block;
+  box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.2),
+              inset 0px -5px 0px 0px rgba(0,0,0,0.3),
+              inset 0px 2px 0px 0px rgba(255,255,255,0.5);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 36px;
+  font-weight:bold;
+  padding:14px 50px;
+}
+.topButton:active {
+  box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.2),
+              inset 0px -2px 0px 0px rgba(0,0,0,0.3),
+              inset 0px 2px 0px 0px rgba(255,255,255,0.5);
+  top: 3px;
+}
+
+.topButton:active div {
+  padding-bottom: 9px;
+}
