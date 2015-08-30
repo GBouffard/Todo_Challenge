@@ -53,7 +53,7 @@
           <div class="taskBox">
             <label for="taskBox">
               <input type="checkbox" class="taskCheckBox" ng-model="task.status" ng-change="tasksCtrl.doTask()" id={{'ID'+$index}}>
-            </label>{{task.name}}
+            </label><p class="taskName" >{{task.name}}</p>
           </div>
         </li>
       </ul>

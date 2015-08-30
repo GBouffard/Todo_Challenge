@@ -217,3 +217,8 @@ input[type=checkbox] {
   filter: alpha(opacity=100);
   opacity: 1;
 }
+
+.taskName {
+  margin-left: 35px;
+  line-height: 250%;
+}
