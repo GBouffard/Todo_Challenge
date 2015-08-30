@@ -37,8 +37,11 @@ How to run tests
 ```
 cd todo_challenge
 npm test
+webdriver-manager start
+http-server
 protractor test/e2e/conf.js
 ```
 
 And this is what you should see
-![](public/image_to_come.png)
+![](public/images/Karma_screenshot.png)
+![](public/images/Protractor_screenshot.png)

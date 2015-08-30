@@ -231,4 +231,5 @@ input[type=checkbox] {
 .taskName {
   margin-left: 35px;
   line-height: 250%;
+  line-width: 500px;
 }
