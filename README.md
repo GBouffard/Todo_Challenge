@@ -8,7 +8,9 @@ Heroku
 ----
 [Guillaume's Todo challenge](link_to_come)
 
-![](public/images/screenshot_to_cme.png)
+![](public/images/main_screen_screenshot.png)
+
+![](public/images/tasks_screenshot.png)
 
 Technologies used
 ----
@@ -37,11 +39,15 @@ How to run tests
 ```
 cd todo_challenge
 npm test
+```
+This is what you should see
+![](public/images/Karma_screenshot.png)
+
+In 3 different terminals:
+```
 webdriver-manager start
 http-server
 protractor test/e2e/conf.js
 ```
-
 And this is what you should see
-![](public/images/Karma_screenshot.png)
 ![](public/images/Protractor_screenshot.png)
