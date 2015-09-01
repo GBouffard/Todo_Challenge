@@ -10,7 +10,7 @@ app.get('/', function(request, response){
   response.sendFile(path.join(__dirname, './', './index.html'));
 });
 
-server.listen(3000, function(){
+server.listen((process.env.PORT || 3000), function(){
   console.log('Guillaume Tasks Manager is running on 3000');
 });
 
