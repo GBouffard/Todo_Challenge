@@ -1,12 +1,12 @@
 {
   "name": "todo_challenge",
-  "version": "1.0.0",
+  "version": "2.14.1",
   "description": "Makers Academy Challenge",
   "main": "index.js",
   "scripts": {
     "test": "karma start test/karma.conf.js",
     "start": "node server.js",
-    "postinstall": "./node_modules/bower/bin/bower install"
+    "postinstall": "bower install"
   },
   "engines": {
     "node": "0.10.x"
